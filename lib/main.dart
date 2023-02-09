@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
- 
- void main(List<String> args) {
+
+void main(List<String> args) {
   runApp(Myapp());
 }
 
@@ -9,33 +9,29 @@ class Myapp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       home: Scaffold(
-        appBar : AppBar(
+        appBar: AppBar(
           title: Text("This is my app rock"),
           backgroundColor: Colors.amber,
         ),
-
         drawer: Drawer(
           backgroundColor: Color.fromARGB(209, 98, 60, 202),
           child: ListView(
             children: [
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.lightGreenAccent,
-                ),
-                child: Column(
-                  children: [
-                    ClipRect(child: Image.network("https://cdn.pixabay.com/photo/2022/08/23/17/06/background-7406102_960_720.jpg",height: 100,width: 100,),
-                    )
-                    
-                  ],
-                ),
-              )
+              UserAccountsDrawerHeader(
+                  accountName: Text("Gojo Sataru"),
+                  accountEmail: Text("gojosataru96@gmail.com"),
+                  currentAccountPicture: CircleAvatar(
+                    child: ClipOval(
+                      child: Image.network("https://picsum.photos/250?image=9",scale: .9, width: 170,height: 180,),
+                    ),
+                  ),),
+                  
             ],
           ),
         ),
-         ),
+      ),
     );
   }
 }
